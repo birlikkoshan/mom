@@ -1,0 +1,519 @@
+/* Mobile-First Birthday Website Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #333;
+}
+
+/* Floating Hearts Animation */
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+.heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+.heart:nth-child(2) { left: 20%; animation-delay: 1s; }
+.heart:nth-child(3) { left: 70%; animation-delay: 2s; }
+.heart:nth-child(4) { left: 80%; animation-delay: 3s; }
+.heart:nth-child(5) { left: 50%; animation-delay: 4s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+/* Header Styles */
+.birthday-header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+    background-size: 400% 400%;
+    animation: gradientShift 3s ease infinite;
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.main-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    margin-bottom: 0.5rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Section Styles */
+section {
+    padding: 2rem 1rem;
+    margin: 1rem 0;
+    position: relative;
+    z-index: 2;
+}
+
+h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    text-align: center;
+    color: white;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Photo Gallery */
+.photo-gallery {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin: 1rem;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+    max-width: 100%;
+}
+
+.photo-frame {
+    background: white;
+    border-radius: 15px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.photo-frame:hover {
+    transform: scale(1.05);
+}
+
+.photo-placeholder {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.gallery-photo {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.gallery-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* Birthday Messages */
+.birthday-messages {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin: 1rem;
+}
+
+.message-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.message-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.message-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Birthday Cake */
+.birthday-cake {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin: 1rem;
+    text-align: center;
+}
+
+.cake-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.cake {
+    position: relative;
+    width: 200px;
+    height: 150px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.cake:hover {
+    transform: scale(1.1);
+}
+
+.cake-layer {
+    position: absolute;
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.layer-1 {
+    width: 180px;
+    height: 40px;
+    background: linear-gradient(45deg, #8B4513, #A0522D);
+    bottom: 0;
+}
+
+.layer-2 {
+    width: 140px;
+    height: 40px;
+    background: linear-gradient(45deg, #FFB6C1, #FFC0CB);
+    bottom: 40px;
+}
+
+.layer-3 {
+    width: 100px;
+    height: 40px;
+    background: linear-gradient(45deg, #FFB6C1, #FFC0CB);
+    bottom: 80px;
+}
+
+.candles {
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+}
+
+.candle {
+    width: 8px;
+    height: 20px;
+    background: #FFD700;
+    border-radius: 4px;
+    position: relative;
+}
+
+.candle::before {
+    content: '🔥';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    animation: flicker 1s infinite alternate;
+}
+
+@keyframes flicker {
+    0% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+
+.blow-candles-btn {
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.blow-candles-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.blow-candles-btn:active {
+    transform: translateY(0);
+}
+
+/* Countdown Section */
+.countdown-section {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin: 1rem;
+}
+
+.countdown-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.countdown-item {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.countdown-item span {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ff6b6b;
+    margin-bottom: 0.5rem;
+}
+
+.countdown-item label {
+    font-size: 1rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Fun Facts */
+.fun-facts {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin: 1rem;
+}
+
+.fact-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.fact-card h3 {
+    color: #ff6b6b;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.fact-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Wishes Form */
+.wishes-form {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin: 1rem;
+}
+
+#wishesForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#wishesForm textarea {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 15px;
+    font-size: 1rem;
+    resize: vertical;
+    min-height: 100px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+#wishesForm button {
+    background: linear-gradient(45deg, #48dbfb, #0abde3);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#wishesForm button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.wishes-display {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 15px;
+    min-height: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+.birthday-footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    margin: 1rem;
+    border-radius: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.birthday-footer p {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.sparkles {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.sparkles span {
+    font-size: 1.5rem;
+    animation: sparkle 2s infinite;
+}
+
+.sparkles span:nth-child(2) { animation-delay: 0.5s; }
+.sparkles span:nth-child(3) { animation-delay: 1s; }
+.sparkles span:nth-child(4) { animation-delay: 1.5s; }
+
+@keyframes sparkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50% { transform: scale(1.2) rotate(180deg); opacity: 0.7; }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+    
+    .gallery-photo {
+        height: 150px;
+    }
+    
+    .countdown-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .countdown-item {
+        padding: 1rem;
+    }
+    
+    .countdown-item span {
+        font-size: 2rem;
+    }
+    
+    .cake {
+        width: 150px;
+        height: 120px;
+    }
+    
+    .cake-layer {
+        height: 30px;
+    }
+    
+    .layer-1 { width: 140px; }
+    .layer-2 { width: 110px; }
+    .layer-3 { width: 80px; }
+}
+
+/* Candle blown out animation */
+.candles.blown .candle::before {
+    content: '💨';
+    animation: none;
+}
+
+/* Confetti animation */
+@keyframes confetti {
+    0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #ff6b6b;
+    animation: confetti 3s linear forwards;
+    z-index: 1000;
+}
